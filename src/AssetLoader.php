@@ -46,6 +46,7 @@ class AssetLoader {
 
 		foreach ( $manifest['scripts'] as $handle => $script ) {
 			$script = new ScriptAsset( $handle, $script );
+			$script->set_base_url( $manifest['base_urls']['scripts'] );
 
 			if ( false === $this->check_conditions( 'script', $handle, $script ) ) {
 				continue;
@@ -74,6 +75,7 @@ class AssetLoader {
 
 		foreach ( $manifest['styles'] as $handle => $style ) {
 			$style = new StyleAsset( $handle, $style );
+			$style->set_base_url( $manifest['base_urls']['styles'] );
 
 			if ( false === $this->check_conditions( 'style', $handle, $script ) ) {
 				continue;
