@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DBisso\\Service\\Asset\\": "src/"
+            "DBisso\\Service\\AssetLoader\\": "src/"
         }
     },
     "license": "GPL-2.0+",
