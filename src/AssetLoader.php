@@ -205,9 +205,7 @@ class AssetLoader {
 	 * @return array
 	 */
 	private function set_theme_script_path( AssetInterface $script ) {
-		$is_remote = preg_match( '~^(https?:)?//~', $script['src'] ) !== 0;
-
-		$script['src'] = $is_remote ? $script['src'] : get_stylesheet_directory_uri() . '/js/' . $script['src'];
+		$script['src'] = $script->is_remote() ? $script['src'] : $script->get_base_url() . $script['src'];
 
 		return $script;
 	}
@@ -219,9 +217,7 @@ class AssetLoader {
 	 * @return array
 	 */
 	private function set_theme_style_path( AssetInterface $style ) {
-		$is_remote = preg_match( '~^(https?:)?//~', $style['src'] ) !== 0;
-
-		$style['src'] = $is_remote ? $style['src'] : trailingslashit( get_stylesheet_directory_uri() ) . $style['src'];
+		$style['src'] = $style->is_remote() ? $style['src'] : $style->get_base_url() . $style['src'];
 
 		return $style;
 	}
