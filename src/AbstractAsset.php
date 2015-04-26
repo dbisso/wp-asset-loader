@@ -58,6 +58,9 @@ abstract class AbstractAsset implements AssetInterface, \ArrayAccess {
 		$this->base_url = $url;
 	}
 
+	public function is_remote() {
+		return preg_match( '~^(https?:)?//~', $this->src ) !== 0;
+	}
 
 	public function offsetSet( $offset, $value ) {
 		$this->$offset = $value;
