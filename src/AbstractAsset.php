@@ -12,6 +12,8 @@ abstract class AbstractAsset implements AssetInterface, \ArrayAccess {
 
 	protected $data = array();
 
+	protected $base_url;
+
 	public function __construct( $handle, array $asset ) {
 		$this->handle  = $handle;
 		$this->src     = $asset['src'];
@@ -47,6 +49,15 @@ abstract class AbstractAsset implements AssetInterface, \ArrayAccess {
 
 		return array();
 	}
+
+	public function get_base_url() {
+		return $this->base_url;
+	}
+
+	public function set_base_url( $url ) {
+		$this->base_url = $url;
+	}
+
 
 	public function offsetSet( $offset, $value ) {
 		$this->$offset = $value;
