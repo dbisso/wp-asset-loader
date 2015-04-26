@@ -24,8 +24,15 @@ class AssetLoader {
 		);
 	}
 
-	public function load() {
+	private function get_manifest() {
 		$manifest = Yaml::parse( $this->manifest_path );
+
+		return $manifest;
+	}
+
+
+	public function load() {
+		$manifest = $this->get_manifest();
 
 		foreach ( $manifest['scripts'] as $handle => $script ) {
 			$script = new ScriptAsset( $handle, $script );
