@@ -27,6 +27,16 @@ class AssetLoader {
 	private function get_manifest() {
 		$manifest = Yaml::parse( $this->manifest_path );
 
+		if ( $manifest ) {
+			$manifest['base_urls'] = array_merge(
+				array(
+					'scripts' => trailingslashit( get_template_directory_uri() ),
+					'styles' => trailingslashit( get_template_directory_uri() ),
+				),
+				is_array( $manifest['base_urls'] ) ? $manifest['base_urls'] : array()
+			);
+		}
+
 		return $manifest;
 	}
 
