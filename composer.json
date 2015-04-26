@@ -7,6 +7,11 @@
     "require-dev": {
         "10up/wp_mock": "0.1.*"
     },
+    "autoload": {
+        "psr-4": {
+            "DBisso\\Service\\Asset\\": "src/"
+        }
+    },
     "license": "GPL-2.0+",
     "authors": [
         {
