@@ -22,6 +22,11 @@ scripts:
     modernizr:
         src: vendor/modernizr.js
         version: 2.8.3
+    a-jquery-plugin:
+        src: vendor/jquery.my-plugin.js
+        # Specify dependencies
+        deps:
+            - jquery
     # Pre-registered & built-in assets can be added too.
     comment-reply:
       registered: true
